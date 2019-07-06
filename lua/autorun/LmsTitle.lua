@@ -72,4 +72,10 @@ else
         end
         ply:SetNWString("LmsTitle", line)
     end)
+	hook.Add("PlayerInitialSpawn","LmsTitleLoad",function(ply)
+		if ply:IsValid() then
+			if ply:GetPData("LmsTitleP",nil)==nil then ply:SetPData("LmsTitleP"," ") end
+			ply:SetNWString("LmsTitle",ply:GetPData("LmsTitleP"," ")) //Deixei com espaço para não ter bugs...
+		end
+	end)
 end
